@@ -92,3 +92,78 @@ Ordem da execução de tarefas menores
 > - Interface
 > - Funcionalidades
 > - Pré-requisitos
+
+### Reconhecimento de Padrões
+
+- Modelo Base
+- Estrutura Invariante
+- Repetição
+- Classificação de objetos
+
+#### Por que determinar padrões?
+
+- Generalizar com o objetivo de obter resolução para problemas diferentes
+
+> **Seres Humanos** reconhecem padrões por _grau de similaridade_ comparando grupos conhecidos com o objeto desconhecido
+> **Computadores** devem simular o comportamento humano:
+>
+> - dar dados que representam o objeto (**atributos**)
+> - aprendizado do conceito associado ao objeto
+> - armazenar dados
+> - determinar regras de decisão
+
+```
+
+extração de características + clasificação de dados
+
+```
+
+### Abstração
+
+- Generalização
+  > Reunir numa classe geral um conjunto de seres ou fenômenos similares
+
+#### Como classificar os dados?
+
+- Levantar as características
+- Definir os pontos essenciais
+- Generalizar deixando de lado os detalhes que não são relevantes para o problema
+- Criar uma representação dos dados
+
+### Algoritmos
+
+O computador:
+
+- Recebe Dados
+- Manipula Dados
+- Armazena Dados
+
+> Ele faz isso por meio de instruções chamadas Algoritmos
+
+#### Desenvolvimento de um programa
+
+- Análise
+- Algoritmo
+- Codificação
+
+> **Algoritmo**
+>
+> - Sequência de passos com objetivo bem definido
+> - Execução de tarefas específicas
+> - Conjunto de operações que resultam em uma sucessão finita de ações
+
+#### Como construir um algoritmo?
+
+- Compreensão do problema
+- Definição dos dados de entrada
+- Definição do processamento
+- Definir dados de saída
+- Utilização de um método de construção
+- Realizar testes
+- Realizar refinamentos
+
+> **Construção de Algoritmos**
+>
+> - Narrativa - utiliza linguagem natural
+> - Fluxograma - utiliza símbolos pré-definidos
+> - Pseudocódigo - Portugol que se assemelha a uma linguagem de programação mas utiliza códigos em linguagem natural
