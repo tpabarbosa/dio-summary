@@ -20,7 +20,7 @@ const tests = [
     {
         arr: ["a"],
         num: "1",
-        expectedErr: RangeError,
+        expectedErr: TypeError,
     },
     {
         arr: ["a"],
@@ -69,8 +69,8 @@ tests.map((test, index) => {
             console.log("EXPECTED ERROR:", test.expectedErr);
             console.log("RETURNED ERROR:", err ? err.name : err);
         }
-        console.log(`\n\n`);
+        console.log(`\n`);
     }
 });
 
-console.log("Fim dos testes 😁");
+console.log("Fim dos testes 😁\n");
