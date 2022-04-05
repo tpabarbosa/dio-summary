@@ -26,7 +26,7 @@ function myFunction(arr, number) {
 
     // restante da implementação
 
-    return `O array tem ${number} elemento(s)`;
+    return arr;
 }
 ```
 
@@ -63,44 +63,44 @@ Outra possibilidade é, ao invés de alterarmos os valores dos parâmetros manua
 
 - `arr` é o valor que será passado para a função como primeiro parâmetro;
 - `num` é o valor que será passado para a função como segundo parâmetro;
-- `expectedErr`: é o tipo de erro que eu espero que a função retorne quando `arr` e `num` forem passados a ela.
+- `expected`: é o tipo que eu espero que a função retorne quando `arr` e `num` forem passados a ela.
 
 ```js
 const tests = [
   {
     arr: undefined,
     num: undefined,
-    expectedErr: ReferenceError,
+    expected: ReferenceError,
   },
   {
     arr: "a",
     num: undefined,
-    expectedErr: ReferenceError,
+    expected: ReferenceError,
   },
   {
     arr: "a",
     num: 1,
-    expectedErr: TypeError,
+    expected: TypeError,
   },
   {
     arr: ["a"],
     num: "1",
-    expectedErr: TypeError,
+    expected: TypeError,
   },
   {
     arr: ["a"],
     num: 2,
-    expectedErr: RangeError,
+    expected: RangeError,
   },
   {
     arr: ["a"],
     num: 1,
-    expectedErr: undefined,
+    expected: Array,
   },
   {
     arr: ["a", "b"],
     num: 2,
-    expectedErr: undefined,
+    expected: Array,
   },
 ];
 ```
@@ -112,20 +112,20 @@ tests.map((test, index) => {
   console.log(`➡ TESTE ${index + 1}`);
   console.log("arr: ", test.arr);
   console.log("number: ", test.num);
-  let err = undefined; // caso a função retorne um erro essa variável será usada para compararmos com o tipo de erro esperado
+  let result = undefined; // essa variável será usada para compararmos com o tipo de resultado que esperamos
   try {
-    const result = myFunction(test.arr, test.num); // aqui utilizamos os valores do teste
+    result = myFunction(test.arr, test.num); // aqui utilizamos os valores do teste
     console.log("Resultado da Função:", result); // Se não der erro, mostra o retorno da função
   } catch (e) {
-    err = e;
+    result = e;
     // implementação dos casos de erro, como já estavam escritos
   } finally {
-    if (err === test.expectedErr || err instanceof test.expectedErr) {
+    if (result === test.expected || result instanceof test.expected) {
       console.log(`✔ O Teste ${index + 1} passou`);
     } else {
       console.log(`❌ O Teste ${index + 1} NÃO passou`);
-      console.log("EXPECTED ERROR:", test.expectedErr);
-      console.log("RETURNED ERROR:", err ? err.name : err);
+      console.log("EXPECTED ERROR:", test.expected);
+      console.log("RETURNED ERROR:", result.name ? result.name : result : err);
     }
     console.log(`\n`);
   }

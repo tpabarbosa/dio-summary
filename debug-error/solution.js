@@ -10,32 +10,32 @@ function myFunction(arr, number) {
             "O tamanho do parâmetro 'arr' dever ser igual ao valor do parâmetro 'number'."
         );
 
-    return `O array tem ${number} ${number === 1 ? "elemento" : "elementos"}.`;
+    return arr;
 }
 
 const tests = [
-    { arr: undefined, num: undefined, expectedErr: ReferenceError },
-    { arr: "a", num: undefined, expectedErr: ReferenceError },
-    { arr: "a", num: 1, expectedErr: TypeError },
+    { arr: undefined, num: undefined, expected: ReferenceError },
+    { arr: "a", num: undefined, expected: ReferenceError },
+    { arr: "a", num: 1, expected: TypeError },
     {
         arr: ["a"],
         num: "1",
-        expectedErr: TypeError,
+        expected: TypeError,
     },
     {
         arr: ["a"],
         num: 2,
-        expectedErr: RangeError,
+        expected: RangeError,
     },
     {
         arr: ["a"],
         num: 1,
-        expectedErr: undefined,
+        expected: Array,
     },
     {
         arr: ["a", "b"],
         num: 2,
-        expectedErr: undefined,
+        expected: Array,
     },
 ];
 
@@ -45,12 +45,12 @@ tests.map((test, index) => {
     console.log(`➡ Teste: ${index + 1}`);
     console.log("arr: ", test.arr);
     console.log("number: ", test.num);
-    let err = undefined;
+    let result = undefined;
     try {
-        const result = myFunction(test.arr, test.num);
+        result = myFunction(test.arr, test.num);
         console.log("Resultado da Função:", result);
     } catch (e) {
-        err = e;
+        result = e;
         if (e instanceof ReferenceError) {
             console.log(`ERRO: Estão faltando parâmetros:`);
         } else if (e instanceof TypeError) {
@@ -60,14 +60,14 @@ tests.map((test, index) => {
         } else {
             console.log(`ERRO: Erro não esperado:`);
         }
-        console.log("Mensagem original do erro: ", err.message);
+        console.log("Mensagem original do erro: ", e.message);
     } finally {
-        if (err === test.expectedErr || err instanceof test.expectedErr) {
+        if (result === test.expected || result instanceof test.expected) {
             console.log(`✔ O Teste ${index + 1} passou`);
         } else {
             console.log(`❌ O Teste ${index + 1} NÃO passou`);
-            console.log("EXPECTED ERROR:", test.expectedErr);
-            console.log("RETURNED ERROR:", err ? err.name : err);
+            console.log("EXPECTED ERROR:", test.expected);
+            console.log("RETURNED ERROR:", result.name ? result.name : result);
         }
         console.log(`\n`);
     }
